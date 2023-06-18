@@ -1,0 +1,27 @@
+plugins {
+    id 'java-library'
+}
+
+// Репазиторий с которого будет осуществляться установка зависимостей
+repositories {
+    mavenCentral()
+}
+
+// Указание кодировки для избежания ошибок с ней
+compileTestJava{
+    options.encoding = 'UTF-8'
+}
+
+// Указание зависимостей
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation(
+            'org.junit.jupiter:junit-jupiter',
+            'com.codeborne:selenide:6.15.0'
+    )
+}
+
+// Конфигурация проекта для запуска тестов на junit
+test {
+    useJUnitPlatform()
+}
