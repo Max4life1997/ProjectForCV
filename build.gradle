@@ -5,14 +5,32 @@ plugins {
 group 'guru.qa'
 version '1.0-SNAPSHOT'
 
+// Репазиторий с которого будет осуществляться установка зависимостей
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
+// Указание кодировки для избежания ошибок с ней
+compileTestJava {
+    options.encoding = 'UTF-8'
 }
 
+// Версии
+def jupiterVersion = "5.9.3"
+def selenideVersion = "6.15.0"
+def slfjVersion = "2.0.7"
+
+
+// Зависимости
+dependencies {
+    testImplementation(
+            "com.codeborne:selenide:$selenideVersion",
+            "org.junit.jupiter:junit-jupiter:$jupiterVersion",
+            "org.slf4j:slf4j-api:$slfjVersion",
+    )
+}
+
+// Указание gradle использовать junit5
 test {
     useJUnitPlatform()
 }
