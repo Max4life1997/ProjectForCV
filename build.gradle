@@ -53,4 +53,5 @@ dependencies {
 // Указание gradle использовать junit5
 test {
     useJUnitPlatform()
+    systemProperties(System.getProperties())
 }

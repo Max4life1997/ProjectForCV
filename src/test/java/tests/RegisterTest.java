@@ -14,7 +14,8 @@ public class RegisterTest extends BaseTest {
                 .setEmail("alex@gorov.com")
                 .setGender("Male")
                 .setPhone("7034324234")
-                .setBirthDate("22","November","2008");
+//                .setBirthDate("22","November","2008")
+                ;
     }
 
 }
