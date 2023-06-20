@@ -1,7 +1,7 @@
 #githubWorkFlows
 name: Test
 
-on: [ push ]
+on: workflow_dispatch
 
 run-name: ${{ github.actor }} is learning GitHub Actions
 
