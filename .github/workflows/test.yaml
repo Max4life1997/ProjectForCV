@@ -20,7 +20,7 @@ jobs:
         with:
           distribution: 'corretto' # See 'Supported distributions' for available options
           java-version: '11'
-      - name: <Настраиваем Selenoid>
+      - name: Настраиваем Selenoid
         uses: Xotabu4/selenoid-github-action@v2
       # запускаем тесты
       - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
@@ -45,6 +45,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v2
         if: always()
         env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.test-token }}
           PUBLISH_BRANCH: gh-pages
           PUBLISH_DIR: allure-history
