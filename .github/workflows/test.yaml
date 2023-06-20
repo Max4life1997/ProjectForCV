@@ -22,8 +22,10 @@ jobs:
           java-version: '11'
       - name: Настраиваем Selenoid
         uses: Xotabu4/selenoid-github-action@v2
+
       # запускаем тесты
       - run: ./gradlew clean test -Dselenide.remote=http://localhost:4444/wd/hub
+
       # Настройка Allure
       - name: Скачиваем историю тестов
         uses: actions/checkout@v2
@@ -35,10 +37,9 @@ jobs:
       - name: Генерируем отчет
         uses: simple-elf/allure-report-action@master
         if: always()
-        id: allure-report
         with:
-          allure_results: build/allure-results
           gh_pages: gh-pages
+          allure_results: build/allure-results
           allure_report: allure-report
           allure_history: allure-history
       - name: Публикуем отчет в Github
