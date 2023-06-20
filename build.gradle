@@ -9,13 +9,13 @@ version '1.0-SNAPSHOT'
 allure{
     report{
         version { // секция репорта
-            version.set("2.19.0")
+            version.set("2.20.1")
         }
         adapter{ //отвечает за появление папки build/allure-results
             aspectjWeaver.set(true) // обработка аннатации
             frameworks{
                 junit5{
-                    adapterVersion.set("2.19.0") //версий интеграции фреймворка и Allure
+                    adapterVersion.set("2.20.1") //версий интеграции фреймворка и Allure
                 }
             }
         }
@@ -29,7 +29,7 @@ repositories {
 }
 
 // Указание кодировки для избежания ошибок с ней
-compileTestJava {
+tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
 
@@ -45,7 +45,7 @@ dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "org.junit.jupiter:junit-jupiter:$jupiterVersion",
-            "org.slf4j:slf4j-api:$slfjVersion",
+            testRuntimeOnly("org.slf4j:slf4j-simple:$slfjVersion"),
             "io.qameta.allure:allure-selenide:$allureSelenideVersion"
     )
 }
