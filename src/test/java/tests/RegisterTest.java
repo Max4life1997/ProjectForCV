@@ -1,11 +1,13 @@
 package tests;
 
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
 public class RegisterTest extends BaseTest {
 
     @Test
+    @Tag("reg_test")
     void RegistrationPositiveTest() {
         RegistrationPage registrationPage = new RegistrationPage();
         registrationPage.openPage()

@@ -45,7 +45,7 @@ dependencies {
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "org.junit.jupiter:junit-jupiter:$jupiterVersion",
-            testRuntimeOnly("org.slf4j:slf4j-simple:$slfjVersion"),
+            "org.slf4j:slf4j-simple:$slfjVersion",
             "io.qameta.allure:allure-selenide:$allureSelenideVersion"
     )
 }
@@ -54,4 +54,10 @@ dependencies {
 test {
     useJUnitPlatform()
     systemProperties(System.getProperties())
+}
+
+task simple_task(type: Test){
+    useJUnitPlatform(){
+        includeTags("reg_test")
+    }
 }
