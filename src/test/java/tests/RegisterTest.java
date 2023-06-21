@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
-public class RegisterTest extends BaseTest {
+public class RegisterTest extends BaseRemoteTest {
 
     @Test
     @Tag("reg_test")
